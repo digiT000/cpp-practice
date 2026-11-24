@@ -1,6 +1,6 @@
-# C++ Practice
+# Journey to Learn C++ and Try Game Development
 
-My journey to learn C++ and become a game developer.
+My journey to learn C++ and try game development.
 
 Based on the YouTube course **COMP 4300 - Intro to C++ Game Programming (2022-09)**:
 [playlist](https://youtube.com/playlist?list=PL_xRyXins848nDj2v-TJYahzvs-XW9sVV)
