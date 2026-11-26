@@ -1,0 +1,12 @@
+{
+  "[cpp]": {
+    "editor.inlineSuggest.enabled": false
+  },
+  "[c]": {
+    "editor.inlineSuggest.enabled": false
+  },
+  "github.copilot.enable": {
+    "cpp": false,
+    "c": false
+  }
+}
