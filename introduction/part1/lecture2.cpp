@@ -131,7 +131,7 @@ int main (int argc, char * argv[])
     const Student s3("Farel","Deksano", 292299991, 99.11);
 
     Course comp4300("COMP4300");
-    comp4300.loadFromFile("introduction/students.txt");
+    comp4300.loadFromFile("introduction/part1/students.txt");
     comp4300.print();
 
     // s3.print();

@@ -18,6 +18,8 @@ Each lecture gets its own folder with my notes and code.
 ```
 cpp-practice/
 ├── introduction/   # first steps and basics
+│   ├── part1/
+│   └── part2/
 └── ...             # lecture folders and projects as I go
 ```
 

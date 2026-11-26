@@ -2,5 +2,5 @@ a.out
 *.o
 *.dSYM/
 .DS_Store
-introduction/lecturecode
+introduction/**/lecturecode
 build/
