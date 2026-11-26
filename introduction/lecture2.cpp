@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <fstream>
 
 // Create h file
 
@@ -50,12 +51,73 @@ class Student
             // if we try to be sneaky and try to change the value of m_first, it will give us an error
             // m_first = "changes";
 
-            std::cout << "First: " << m_first << std::endl;
-            std::cout << "Last: " << m_last << std::endl;
-            std::cout << "ID: " << m_id << std::endl;
-            std::cout << "Average: " << m_avg << std::endl;
+            std::cout << m_first << " " << m_last << " " << m_id << " " << m_avg << std::endl;
         }
 
+};
+
+class Course
+{
+    std::string m_name = "Course";
+    std::vector<Student> m_students;
+
+    public:
+    // Default Constructor
+    Course(){}
+
+    Course(const std::string& name )
+    : m_name(name)
+    {
+    }
+
+    void addStudent(const Student& student)
+    {
+        m_students.push_back(student);
+    }
+
+    // We only get, not changing anyting
+    const std::vector<Student>& getStudents() const
+    {
+        return m_students;
+    }
+
+    void loadFromFile(const std::string& filename)
+    {
+        // 1. Need file input stream
+        std::ifstream fileIn(filename);
+        std::string temp;
+        std::string first,last;
+        int id;
+        float avg;
+
+
+        // To check if the file is open or not
+        if(fileIn.is_open())
+        {
+            std::cout << "File is open" << std::endl;
+            
+            
+            while (fileIn >> first)
+            {
+            
+            fileIn >> last >> id >> avg;
+            addStudent(Student(first,last,id,avg));
+            }
+        }
+        else
+        {
+            std::cout << "File is not open" << std::endl;
+        } 
+        
+    }
+
+    void print()const
+    {
+        for (const auto& student : m_students)
+        {
+            student.print();
+        }
+    }  
 };
 
 
@@ -68,7 +130,11 @@ int main (int argc, char * argv[])
     Student s2("John", "Doe", 123, 3.14);
     const Student s3("Farel","Deksano", 292299991, 99.11);
 
-    s3.print();
+    Course comp4300("COMP4300");
+    comp4300.loadFromFile("introduction/students.txt");
+    comp4300.print();
+
+    // s3.print();
 
     // Vector 1
     std::vector<int> vec;
@@ -78,13 +144,13 @@ int main (int argc, char * argv[])
 
     for (size_t i = 0 ; i < vec.size();i++)
     {
-        std::cout << vec[i] << std::endl;
+        // std::cout << vec[i] << std::endl;
     }
 
 
     for (int a : vec)
     {
-        std::cout << a << std::endl;
+        // std::cout << a << std::endl;
     }
 
 
@@ -96,7 +162,7 @@ int main (int argc, char * argv[])
 
     for(auto a : vecFloat)
     {
-        std::cout << a << std::endl;
+        // std::cout << a << std::endl;
     }
        
     return 0;
